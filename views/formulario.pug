@@ -1,0 +1,41 @@
+extends layout
+
+block plantillapug
+    h1(style='color:blue') Ingrese Producto
+    .row 
+        .col 
+            form#form-product(onsubmit='return addProduct(event)' action='/productos' method='POST')
+                .mb-3
+                    i
+                        label.form-label(for='nombre') Nombre
+                    input#nombre.form-control(type='text' aria-describedby='emailHelp' name='nombre' required=true)
+                
+                .mb-3
+                    i
+                        label.form-label(for='precio') Precio
+                    input#precio.form-control(type='number' name='precio' required=true)
+                
+                .mb-3
+                    i
+                        label.form-label(for='imagen') Foto URL
+                    input#imagen.form-control(type='text' name='imagen')
+
+                button.btn.btn-primary(type='submit') Guardar
+                br
+                br
+        .col#table-products
+            
+    h1(style='color: blue') Centro de Mensajes
+            
+    .row 
+        .col 
+            form.row.g-3( onsubmit='return addMessage()')    
+                .col-auto
+                    input#usuario.form-control(type="email" name='usuario' placeholder='@' required=true)
+                .col-auto
+                    input#text.form-control(type="text" placeholder='Enviar un mensaje')
+                .col-auto
+                    input.btn.btn-primary.mb-3(type="submit" value='Enviar')
+                
+        .col 
+            #chat
